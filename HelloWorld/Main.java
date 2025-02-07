@@ -1,3 +1,5 @@
+package HelloWorld;
+
 public class Main {
     public static void main(String[] args) {
         User user1 = new User("Nigga", "41241", "nigga@gmail.com", "71524756", "Nizami Kucesi");

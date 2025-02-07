@@ -1,3 +1,5 @@
+package Project1;
+
 import java.util.Arrays;
 public class Pet {
     public String species, nickname;

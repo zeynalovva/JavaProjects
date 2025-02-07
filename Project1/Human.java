@@ -1,3 +1,5 @@
+package Project1;
+
 public class Human {
     public String name, surname;
     public int year, IQ;

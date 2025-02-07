@@ -1,4 +1,7 @@
+package HelloWorld;
+
 import java.util.Objects;
+
 public class User {
     public String name;
     private String userID;
