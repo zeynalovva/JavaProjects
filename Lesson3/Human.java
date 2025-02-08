@@ -1,4 +1,4 @@
-package Project1;
+package Lesson3;
 
 public class Human {
     public String name, surname;

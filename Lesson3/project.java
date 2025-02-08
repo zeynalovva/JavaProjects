@@ -1,5 +1,4 @@
-package Project1;
-import javax.lang.model.type.NullType;
+package Lesson3;
 
 public class project {
     public static void main(String[] args) {

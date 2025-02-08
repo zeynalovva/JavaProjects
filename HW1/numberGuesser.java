@@ -1,4 +1,4 @@
-package HW1;
+package Lesson5.src;
 import java.util.Random;
 import java.util.Scanner;
 

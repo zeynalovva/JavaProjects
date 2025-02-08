@@ -1,10 +1,9 @@
-package Project1;
 
 import java.util.Arrays;
 public class Pet {
-    public String species, nickname;
-    public int age, tricklevel;
-    public String[] habits;
+    private String species, nickname;
+    private int age, tricklevel;
+    private String[] habits;
     // Constructor with all fields
     public Pet(String species, String nickname, int age, int tricklevel, String[] habits) {
         this.species = species;
@@ -35,4 +34,36 @@ public class Pet {
         String answer = this.species + "{nickname='" + this.nickname + "', age=" + this.age + ", tricklevel=" + this.tricklevel + ", habits=" + Arrays.toString(this.habits) + "}";
         return answer;
     }
+
+    public String getSpecies() {
+        return species;
+    }
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+    public String getNickname() {
+        return nickname;
+    }
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public int getTricklevel() {
+        return tricklevel;
+    }
+    public void setTricklevel(int tricklevel) {
+        this.tricklevel = tricklevel;
+    }
+    public String[] getHabits() {
+        return habits;
+    }
+    public void setHabits(String[] habits) {
+        this.habits = habits;
+    }
+
 }
