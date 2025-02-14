@@ -4,7 +4,7 @@ public class Main {
         Human father = new Human("Michael", "Michelle", 1990);
         Family family = new Family(mother, father);
         Pet pet = new Pet("Scottish", "Negro", 2, 10, new String[]{"playing", "barking"});
-        family.setPet(pet); // Assign pet later
+        family.setPet(pet);
         String[][] activities = {{"Monday", "Swimming"}, {"Tuesday", "Reading"}};
         Human child = new Human("Jack", "Nehgomayer", 2003, 200, activities, family);
         family.setChildren(new Human[]{child});
