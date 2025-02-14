@@ -1,93 +1,109 @@
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Human {
-    private String name, surname;
-    private int year, IQ;
-    private Pet pet1;
-    private Human mother, father;
-    private String[][] activity;
-    // Constructor with all fields
-    public Human(String name, String surname, int year, int IQ, Human mother, Human father, Pet pet1, String[][] activity) {
+    private String name;
+    private String surname;
+    private int year;
+    private int iq;
+    private String[][] schedule;
+    private Family family;
+
+    public Human(String name, String surname, int year, int IQ, String[][] schedule, Family family) {
         this.name = name;
         this.surname = surname;
         this.year = year;
-        this.IQ = IQ;
-        this.mother = mother;
-        this.father = father;
-        this.pet1 = pet1;
-        this.activity = activity;
+        this.iq = IQ;
+        this.schedule = schedule;
+        this.family = family;
     }
-    // Constructor with name, surname, year of birth, father, and mother
-    public Human(String name, String surname, int year, Human father, Human mother) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-        this.father = father;
-        this.mother = mother;
-    }
-    // Constructor with name, surname, and year of birth
+
     public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
         this.year = year;
     }
-    // Empty constructor.
-    public Human() {
 
-    }
-    public String greetPet(){
-        return "Hello, " + pet1.getNickname();
-    }
-    public void describePet(){
-        String response = "I have an " + pet1.getSpecies() + " is " + pet1.getAge() + " years old, " + "he is " + ((pet1.getAge() > 50)?"very sly":"almost not sly");
-        System.out.println(response);
-    }
-    public String toString(){
-        String petresp = pet1.toString();
-        String answer = "Human{name='" + this.name + "', surname='" + this.surname + "', year=" + this.year + ", iq=" + this.IQ + ", mother=" + this.mother.name + " " + this.mother.surname + ", father=" + this.father.name + " " + this.father.surname + ", pet=" + petresp + "}";
-        return answer;
-    }
+    public Human() {}
 
     public String getName() {
         return name;
-
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public String getSurname() {
         return surname;
     }
+
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
     public int getYear() {
         return year;
     }
+
     public void setYear(int year) {
         this.year = year;
     }
-    public int getIQ() {
-        return IQ;
-    }
-    public void setIQ(int IQ) {
-        this.IQ = IQ;
-    }
-    public Human getMother() {
-        return mother;
-    }
-    public void setMother(Human mother) {
-        this.mother = mother;
-    }
-    public Human getFather() {
-        return father;
-    }
-    public void setFather(Human father) {
-        this.father = father;
-    }
-    public String[][] getActivity() {
-        return activity;
-    }
-    public void setActivity(String[][] activity) {
-        this.activity = activity;
+
+    public int getIq() {
+        return iq;
     }
 
+    public void setIq(int iq) {
+        this.iq = iq;
+    }
+
+    public String[][] getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(String[][] schedule) {
+        this.schedule = schedule;
+    }
+
+    public Family getFamily() {
+        return family;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
+    }
+
+    public String greetPet() {
+        return "Hello, " + family.getPet().getNickname();
+    }
+
+    public void describePet() {
+        Pet pet = family.getPet();
+        System.out.println("I have a " + pet.getSpecies() + ", it is " + pet.getAge() + " years old, " +
+                "he is " + ((pet.getAge() > 50) ? "very sly" : "almost not sly"));
+    }
+
+    @Override
+    public String toString() {
+        return "Human{name='" + name + "', surname='" + surname + "', year=" + year +
+                ", iq=" + iq + ", schedule=" + java.util.Arrays.deepToString(schedule) +
+                "}";
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Human human = (Human) obj;
+        return year == human.year &&
+                iq == human.iq &&
+                Objects.equals(name, human.name) &&
+                Objects.equals(surname, human.surname) &&
+                Arrays.deepEquals(schedule, human.schedule);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, year, iq, Arrays.deepHashCode(schedule));
+    }
 }
